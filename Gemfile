@@ -49,6 +49,9 @@ end
 #  gem 'thin'  
 #end
 
+group :production do
+    gem 'unicorn'
+end
 gem 'flickraw'
 
 gem "rspec-rails", :group => [:development, :test]
