@@ -45,9 +45,9 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-group :production do
-  gem 'thin'  
-end
+#group :production do
+#  gem 'thin'  
+#end
 
 gem 'flickraw'
 
