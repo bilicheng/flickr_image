@@ -17,6 +17,7 @@ $(document).ready(function() {
 	$('#submitSearch').click(function(){
 	   if($('#search').val() == ''){
 	      alert('Input can not be left blank');
+	      return false;
 	   }
 	});
 
