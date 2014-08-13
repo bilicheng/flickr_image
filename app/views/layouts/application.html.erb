@@ -14,6 +14,12 @@ $(document).ready(function() {
 	  	$($(this).parents('div').html()).appendTo('.modal-body');
 	  	$('#flickrModal').modal({show:true});
 	});
+	$('#submitSearch').click(function(){
+	   if($('#search').val() == ''){
+	      alert('Input can not be left blank');
+	   }
+	});
+
 });
 </script>  
 <style type="text/css">
@@ -36,8 +42,7 @@ $(document).ready(function() {
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				
-				<li>right</li>
-				<li>right</li>
+				<li>test</li>
 
 			</ul>
 		</div>
