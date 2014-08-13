@@ -10,11 +10,11 @@ class PhotosController < ApplicationController
       load_auth_data
       if params[:search] 
         if params[:search].blank?
-          flash[:error] = 'Search tag cannot be blank'
+          flash[:alert] = 'Search tag cannot be blank'
         else
           @pictures=get_flickr_images(params[:search]) 
           @photos=@pictures.paginate(params[:page],20)
-          if !@photos
+          if @pictures.blank?
             flash[:notice] = 'Not matched photo'
           end
         end
