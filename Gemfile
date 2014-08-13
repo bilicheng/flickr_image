@@ -43,9 +43,6 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-group :assets do
-   gem 'twitter-bootstrap-rails'
-end
 
 gem 'flickraw'
 

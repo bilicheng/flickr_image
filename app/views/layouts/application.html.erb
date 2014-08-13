@@ -5,10 +5,51 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+<script type="text/JavaScript">
+$(document).ready(function() { 
+	$('.thumbnail').click(function(){
+	  	$('.modal-body').empty();
+	  	var title = $(this).parent('a').attr("title");
+	  	$('.modal-title').html(title);
+	  	$($(this).parents('div').html()).appendTo('.modal-body');
+	  	$('#flickrModal').modal({show:true});
+	});
+});
+</script>  
+<style type="text/css">
+.modal-dialog {
+	width:600px;
+}
+.thumbnail {
+	margin-bottom:6px;
+}
+</style>
 </head>
 <body>
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Flickr Images</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active">test</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				
+				<li>right</li>
+				<li>right</li>
 
-<%= yield %>
-
+			</ul>
+		</div>
+	</div>
+	<div class="container">
+		<% flash.each do |type, message| %>
+		<div class="alert <%= flash_class type %> alert-dismissable">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			<p><%= message %></p>
+		</div>
+		<% end %>
+		<%= yield %>
+	</div>
 </body>
 </html>

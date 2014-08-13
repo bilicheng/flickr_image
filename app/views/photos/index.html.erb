@@ -1,0 +1,9 @@
+<%= form_tag photos_path, :method => 'get', :id => "photos_search", :class=>"form-inline" do %>
+  <div class="form-group">
+    <%= text_field_tag :search, params[:search],:class => "form-control" %>
+    <%= submit_tag "Search", :name => nil, :class => "btn btn-transparent" %>
+  </div>
+  <%if @photos%>
+  <div id="photos"><%= render 'photos' %></div>
+  <%end%>
+<% end %>
