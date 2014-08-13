@@ -14,6 +14,9 @@ class PhotosController < ApplicationController
         else
           @pictures=get_flickr_images(params[:search]) 
           @photos=@pictures.paginate(params[:page],20)
+          if !@photos
+            flash[:notice] = 'Not matched photo'
+          end
         end
       end
     rescue  StandardError => e 
