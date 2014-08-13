@@ -1,4 +1,4 @@
-class FlickrImage
+class FlickrPhoto
   def initialize(id, title, description, link_url, thumbnail_url, original_url)
     @id = id
     @title = title

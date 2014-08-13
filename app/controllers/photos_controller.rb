@@ -1,15 +1,21 @@
 require 'flickraw'
 #require 'launchy'
 require 'yaml' 
-require 'flickr_image'
+require 'flickr_photo'
 
 class PhotosController < ApplicationController
   
   def index
     begin
       load_auth_data
-      @pictures=get_flickr_images(params[:search]) 
-      @photos=@pictures.paginate(params[:page],20)
+      if params[:search] 
+        if params[:search].blank?
+          flash[:error] = 'Search tag cannot be blank'
+        else
+          @pictures=get_flickr_images(params[:search]) 
+          @photos=@pictures.paginate(params[:page],20)
+        end
+      end
     rescue  StandardError => e 
       $my_logger.info("error=#{e}")
     end
@@ -18,6 +24,7 @@ class PhotosController < ApplicationController
 private
 
     def load_auth_data
+      $my_logger.info("load_auth_data")
       config = YAML.load_file('config/flickrkey.yml')
       if config
         FlickRaw.api_key = config['api_key'] 
@@ -37,7 +44,7 @@ private
       flickr_images = []
       images.each do |image|
         
-        flickr_images << FlickrImage.new(
+        flickr_images << FlickrPhoto.new(
           image["id"],
           image["title"],
           "",

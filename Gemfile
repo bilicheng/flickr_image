@@ -47,3 +47,7 @@ end
 gem 'flickraw'
 
 gem "rspec-rails", :group => [:development, :test]
+
+gem 'will_paginate'
+
+gem 'bootstrap-will_paginate'
