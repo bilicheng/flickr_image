@@ -1,9 +1,19 @@
-<%= form_tag photos_path, :method => 'get', :id => "photos_search", :class=>"form-inline" do %>
-  <div class="form-group">
-    <%= text_field_tag :search, params[:search],:class => "form-control" %>
-    <%= submit_tag "Search", :name => 'submitSearch',:id => 'submitSearch', :class => "btn btn-transparent" %>
-  </div>
+<%=form_tag photos_path, :method => 'get' do  %>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <%=text_field_tag :search, params[:search], :class=>"form-control" %>
+      <span class="input-group-btn">
+    	<%= submit_tag "Search", :name => 'submitSearch',:id => 'submitSearch', :class => "btn btn-default" %>
+
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+
+</div><!-- /.row -->
+<% end %>
+
   <%if @photos%>
   <div id="photos"><%= render 'photos' %></div>
   <%end%>
-<% end %>
+

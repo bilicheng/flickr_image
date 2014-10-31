@@ -41,12 +41,11 @@ private
     def get_flickr_images(tag)
       thumbnail_size = "m"
       original_size = "z"
-     
+     $my_logger.info("get_flickr_images")
       images = flickr.photos.search(:tags=>tag, :sort=>"relevance")  
       
       flickr_images = []
       images.each do |image|
-        
         flickr_images << FlickrPhoto.new(
           image["id"],
           image["title"],

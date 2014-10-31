@@ -1,13 +1,22 @@
 <%= will_paginate @photos %>
-  <div class="row">
-    <div class="row-fluid">
+<div class="container well well-large">
+
+  <ul class="thumbnails">
+
 		<% @photos.each do |photo| %>
-      		<div class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
-      			<a href="#" title="<%=photo.title%>"><img src="<%=photo.original_url%>" class="thumbnail img-responsive"></a>
-      		</div>
+      		<li class="span3">
+      			<div >
+      			<a href="#" title="<%=photo.title%>" id="<%=photo.id%>" class="thumbnail">
+      				<img title="<%=photo.title%>" src="<%=photo.original_url%>">
+      			</a>
+      			</div>
+      		</li>
 		<% end %>
-    </div>
-  </div>
+  </ul>
+
+</div>
+
+<%= will_paginate @photos %>
 <div id="flickrModal" class="modal fade" tabindex="-1" role="dialog">
   <div class="modal-dialog">
   <div class="modal-content">
@@ -24,5 +33,3 @@
    </div>
   </div>
 </div>
-
-<%= will_paginate @photos %>
