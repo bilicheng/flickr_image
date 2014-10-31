@@ -15,7 +15,7 @@ class PhotosController < ApplicationController
           @pictures=get_flickr_images(params[:search]) 
           @photos=@pictures.paginate(params[:page],20)
           if @pictures.blank?
-            flash[:notice] = 'Not matched photo'
+            flash[:notice] = 'No matched photo'
           end
         end
       end
@@ -27,7 +27,7 @@ class PhotosController < ApplicationController
 private
 
     def load_auth_data
-      $my_logger.info("load_auth_data")
+    
       config = YAML.load_file('config/flickrkey.yml')
       if config
         FlickRaw.api_key = config['api_key'] 
@@ -41,8 +41,8 @@ private
     def get_flickr_images(tag)
       thumbnail_size = "m"
       original_size = "z"
-     $my_logger.info("get_flickr_images")
-      images = flickr.photos.search(:tags=>tag, :sort=>"relevance")  
+     
+      images = flickr.photos.search(:tags=>tag, :sort=>"relevance", :per_page=>500)  
       
       flickr_images = []
       images.each do |image|

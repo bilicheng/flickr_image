@@ -13,7 +13,15 @@
 </div><!-- /.row -->
 <% end %>
 
-  <%if @photos%>
+<%if @photos%>  
   <div id="photos"><%= render 'photos' %></div>
+  <%else%>
+  <% if flash[:notice]%>
+  	<div class="row">
+  	<div class="col-lg-6">
+  		<p><%=flash[:notice]%></p>
+  	</div>
+  	</div>
   <%end%>
+<%end%>
 
