@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3'
+ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
@@ -56,9 +56,9 @@ end
 #  gem 'thin'  
 #end
 
-#group :production do
-#    gem 'unicorn'
-#end
+group :production do
+    gem 'unicorn'
+end
 gem 'flickraw'
 
 gem "rspec-rails", :group => [:development, :test]
