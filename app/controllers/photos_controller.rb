@@ -43,7 +43,7 @@ private
       thumbnail_size = "m"
       original_size = "z"
      
-      images = flickr.photos.search(:tags=>tag, :sort=>"relevance", :per_page=>500)  
+      images = flickr.photos.search(:text=>tag, :sort=>"relevance", :per_page=>500)  
       
       flickr_images = []
       images.each do |image|

@@ -2,12 +2,15 @@
 <div class="row">
   <div class="col-lg-6">
     <div class="input-group">
-      <%=text_field_tag :search, params[:search], :class=>"form-control" %>
+      <%=text_field_tag :search, params[:search], :class=>"form-control", :placeholder=>"Please enter a free text search" %>
       <span class="input-group-btn">
     	<%= submit_tag "Search", :name => 'submitSearch',:id => 'submitSearch', :class => "btn btn-default" %>
 
       </span>
     </div><!-- /input-group -->
+    <small >
+    	(Photos who's title, description or tags contain the text will be returned.)
+    </small>
   </div><!-- /.col-lg-6 -->
 
 </div><!-- /.row -->
