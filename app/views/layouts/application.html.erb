@@ -26,7 +26,7 @@ $(document).ready(function() {
 	  	$('#flickrModal').modal({show:true});
 	});
 	$('#submitSearch').click(function(){
-	   if($('#search').val() == ''){
+	   if($.trim($('#search').val()) == ''){
 	      alert('Input can not be left blank');
 	      return false;
 	   }
