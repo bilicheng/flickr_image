@@ -1,7 +1,6 @@
 class FlickrPhoto
  
-  
-  def initialize(id=nil, title=nil, description=nil, link_url=nil, thumbnail_url=nil, original_url=nil)
+  def initialize(id, title, description, link_url, thumbnail_url, original_url)
     @id = id
     @title = title
     @description = description

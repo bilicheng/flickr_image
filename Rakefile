@@ -4,3 +4,9 @@
 require File.expand_path('../config/application', __FILE__)
 
 FlickrImage::Application.load_tasks
+
+task :default => [:rspec]
+
+require "rspec/core/rake_task"
+
+RSpec::Core::RakeTask.new(:rspec)

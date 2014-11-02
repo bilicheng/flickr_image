@@ -12,10 +12,11 @@ class PhotosController < ApplicationController
         if params[:search].blank?
           flash[:alert] = 'Search tag cannot be blank'
         else
-          @pictures=get_flickr_images(params[:search]) 
-          @photos=@pictures.paginate(params[:page],20)
+          @pictures=get_flickr_images(params[:search])
           if @pictures.blank?
-            flash[:notice] = 'No matched photo'
+            flash[:notice] = 'No matched photo' 
+          else
+            @photos=@pictures.paginate(params[:page],20)          
           end
         end
       end

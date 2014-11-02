@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
-
+#ruby '2.0.0'
+#ruby '1.9.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
@@ -30,7 +30,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+#gem 'jquery-turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
@@ -56,9 +56,9 @@ end
 #  gem 'thin'  
 #end
 
-group :production do
-    gem 'unicorn'
-end
+#group :production do
+#    gem 'unicorn'
+#end
 gem 'flickraw'
 
 gem "rspec-rails", :group => [:development, :test]

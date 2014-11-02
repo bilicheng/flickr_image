@@ -13,9 +13,9 @@ RSpec.describe PhotosController, :type => :controller do
       expect(response).to be_success
     end
 
-    it 'error messages if you search for the empty' do
+    it 'alert messages if you search for the empty' do
       get :index, {:search => ''}
-      expect(flash[:error]).to be_present
+      expect(flash[:alert]).to be_present
     end
         
   end
